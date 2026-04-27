@@ -1,0 +1,95 @@
+name: AINewsWeekly
+options:
+  bundleIdPrefix: com.aquiba
+  deploymentTarget:
+    iOS: "17.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+
+# Swift package dependencies. MarkdownUI for code-block rendering in
+# LearnDetailView (SwiftUI's Text(markdown:) doesn't render fenced
+# code blocks).
+packages:
+  MarkdownUI:
+    url: https://github.com/gonzalezreal/swift-markdown-ui
+    from: 2.4.1
+
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    SWIFT_STRICT_CONCURRENCY: minimal
+    DEVELOPMENT_TEAM: ""    # Set in Xcode → Signing & Capabilities → Automatic
+
+targets:
+  AINewsWeekly:
+    type: application
+    platform: iOS
+    sources:
+      - path: AINewsWeekly
+    resources:
+      - path: AINewsWeekly/Assets.xcassets
+    info:
+      path: AINewsWeekly/Info.plist
+      properties:
+        CFBundleDisplayName: AINews Weekly
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        UILaunchScreen:
+          UIColorName: AccentColor
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UIRequiredDeviceCapabilities:
+          - armv7
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.aquiba.ainews
+        TARGETED_DEVICE_FAMILY: "1"   # iPhone only, no iPad in v1
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SWIFT_EMIT_LOC_STRINGS: YES
+    dependencies:
+      - package: MarkdownUI
+
+  AINewsWeeklyTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: AINewsWeeklyTests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.aquiba.ainews.tests
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/AINewsWeekly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AINewsWeekly"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: AINewsWeekly
+
+  AINewsWeeklyUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: AINewsWeeklyUITests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.aquiba.ainews.uitests
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: AINewsWeekly
+
+schemes:
+  AINewsWeekly:
+    build:
+      targets:
+        AINewsWeekly: all
+    test:
+      targets:
+        - AINewsWeeklyTests
+        - AINewsWeeklyUITests
+    run:
+      config: Debug
+    archive:
+      config: Release
