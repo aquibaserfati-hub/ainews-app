@@ -142,7 +142,7 @@ private struct AboutSheet: View {
                 Spacer()
                 VStack(spacing: 8) {
                     Link("Source on GitHub", destination: URL(string: "https://github.com/aquibaserfati-hub/ainews-app")!)
-                    Link("Privacy policy", destination: URL(string: "https://aquibaserfati-hub.github.io/ainews-app/privacy")!)
+                    Link("Privacy policy", destination: URL(string: "https://aquibaserfati-hub.github.io/ainews-content/privacy/")!)
                 }
                 .font(.callout)
                 .foregroundStyle(Color.inkAmber)
