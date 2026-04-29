@@ -24,6 +24,7 @@
 		8E3A058D435B7F1E4F2CEFA0 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DBAABB44D530423041E896 /* Models.swift */; };
 		8F25FB5822971B2D6690AB24 /* DigestDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF8F86E8D720625871E3D63 /* DigestDateFormatter.swift */; };
 		9671C2E2913D1B5E99C4D7AF /* MarkdownTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C12F49F91623FB582E8FE /* MarkdownTheme.swift */; };
+		9CCABA66F2371353CC219378 /* LearnTabSmokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29AED37F72BE3C2BBF4CA39 /* LearnTabSmokeTest.swift */; };
 		A5B0F0C34646DCB30DA98F16 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 022327CD179F2C357A6C1F70 /* MarkdownUI */; };
 		A9472C966C542D5B89B8ADEC /* LearnHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036A28EE2C0583EA2EB906C /* LearnHomeView.swift */; };
 		C78EF3738A07F3DC253E5D3C /* CurriculumModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCD6A1F1F9FC14CAE2FDC7C /* CurriculumModels.swift */; };
@@ -80,6 +81,7 @@
 		BF1D5194BB5BEFE758FA0343 /* AINewsWeeklyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AINewsWeeklyUITests.swift; sourceTree = "<group>"; };
 		C9389BA6583EAC4A084DA5DC /* CurriculumService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumService.swift; sourceTree = "<group>"; };
 		CD3C12F49F91623FB582E8FE /* MarkdownTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTheme.swift; sourceTree = "<group>"; };
+		D29AED37F72BE3C2BBF4CA39 /* LearnTabSmokeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTabSmokeTest.swift; sourceTree = "<group>"; };
 		DAC1F68DD3A85E58CF0578A1 /* LearnDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnDetailView.swift; sourceTree = "<group>"; };
 		F0905473D30721FD6F497D4C /* AINewsWeeklyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AINewsWeeklyApp.swift; sourceTree = "<group>"; };
 		F15A37941DAF19654774D2FA /* digest-v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "digest-v1.json"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				BF1D5194BB5BEFE758FA0343 /* AINewsWeeklyUITests.swift */,
 				4BD859A0A668443921D3EBC9 /* AppStoreScreenshotTests.swift */,
+				D29AED37F72BE3C2BBF4CA39 /* LearnTabSmokeTest.swift */,
 			);
 			path = AINewsWeeklyUITests;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			files = (
 				724F68E23F2A59FB27E88025 /* AINewsWeeklyUITests.swift in Sources */,
 				1DB9EE54E4B3A4C7616E9435 /* AppStoreScreenshotTests.swift in Sources */,
+				9CCABA66F2371353CC219378 /* LearnTabSmokeTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
