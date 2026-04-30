@@ -97,9 +97,12 @@ private struct LearnHero: View {
 }
 
 private struct TrackCard: View {
+    @Environment(LessonProgressStore.self) private var progressStore
+
     let track: CurriculumTrack
 
     private var lessonCount: Int { track.lessons.count }
+    private var completedCount: Int { progressStore.completedCount(in: track) }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -114,7 +117,7 @@ private struct TrackCard: View {
             HStack(spacing: 6) {
                 Image(systemName: "book.closed")
                     .foregroundStyle(Color.inkAmber)
-                Text(lessonCountLabel)
+                Text(progressLabel)
                     .font(.caption)
                     .foregroundStyle(Color.inkTextTertiary)
             }
@@ -130,11 +133,16 @@ private struct TrackCard: View {
         .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
     }
 
-    private var lessonCountLabel: String {
+    private var progressLabel: String {
         switch lessonCount {
         case 0: return "Coming soon"
+        case 1 where completedCount == 1: return "1 of 1 lesson complete"
         case 1: return "1 lesson"
-        default: return "\(lessonCount) lessons"
+        default:
+            if completedCount > 0 {
+                return "\(completedCount) of \(lessonCount) lessons complete"
+            }
+            return "\(lessonCount) lessons"
         }
     }
 }

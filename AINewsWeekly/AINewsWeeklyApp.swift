@@ -5,6 +5,7 @@ struct AINewsWeeklyApp: App {
     @State private var digestService = DigestService()
     @State private var curriculumService = CurriculumService()
     @State private var bookmarksStore = BookmarksStore()
+    @State private var lessonProgressStore = LessonProgressStore()
 
     var body: some Scene {
         WindowGroup {
@@ -12,6 +13,7 @@ struct AINewsWeeklyApp: App {
                 .environment(digestService)
                 .environment(curriculumService)
                 .environment(bookmarksStore)
+                .environment(lessonProgressStore)
                 .preferredColorScheme(.light)  // light-mode only; dark in v1.5
                 .tint(.inkAmber)
                 .background(Color.inkCream)

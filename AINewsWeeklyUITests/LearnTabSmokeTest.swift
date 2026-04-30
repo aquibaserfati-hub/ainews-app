@@ -50,6 +50,27 @@ final class LearnTabSmokeTest: XCTestCase {
             lessonRow.tap()
             Thread.sleep(forTimeInterval: 1.5)
             attach(name: "04-lesson-detail", from: app)
+
+            // Mark the first three steps done — exercises the [Mark step done]
+            // button, the progress bar, and the in-progress dot state. Tap on
+            // each "Mark step done" button by accessibility label.
+            for stepNumber in 1...3 {
+                let markButton = app.buttons["Mark step \(stepNumber) done"]
+                if markButton.waitForExistence(timeout: 3) {
+                    markButton.tap()
+                    Thread.sleep(forTimeInterval: 0.4)
+                }
+            }
+            attach(name: "05-lesson-mid-progress", from: app)
+
+            // Pop back to the track view to see the in-progress dot indicator
+            // on the lesson row.
+            let backButton = app.navigationBars.buttons.element(boundBy: 0)
+            if backButton.exists {
+                backButton.tap()
+                Thread.sleep(forTimeInterval: 1.0)
+                attach(name: "06-track-with-progress", from: app)
+            }
         }
     }
 

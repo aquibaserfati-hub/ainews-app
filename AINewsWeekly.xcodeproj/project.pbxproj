@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05729CB72F2E212F171A4FB0 /* LessonProgressStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA025D24CD914280CB92C90 /* LessonProgressStore.swift */; };
 		0962E83449DD75D0F623D6FD /* BookmarksStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEF6FA50658A1B3BDC5D872 /* BookmarksStoreTests.swift */; };
 		0A93208B3F480AF9A5C3BCE6 /* DigestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071E3563D8AC8AD2364EE491 /* DigestService.swift */; };
 		1CE913533D15C67D4B82A088 /* DigestDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3638E4795DE36967D56A41C /* DigestDateFormatterTests.swift */; };
@@ -35,6 +36,7 @@
 		E690290FCA5971B393011A13 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFEACDE72D2EDF0C54109C6 /* TrackDetailView.swift */; };
 		EEBE53925C4776D812FF6CD9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD625166A8B539D22BCA78 /* Category.swift */; };
 		F87A073C61C4423AFBE365BB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A88574AC997F80396523639 /* Colors.swift */; };
+		FEA4B0E8D6D31DF870881536 /* LessonProgressStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDEFA971ABF02719F930F36 /* LessonProgressStoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,9 +85,11 @@
 		CD3C12F49F91623FB582E8FE /* MarkdownTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTheme.swift; sourceTree = "<group>"; };
 		D29AED37F72BE3C2BBF4CA39 /* LearnTabSmokeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTabSmokeTest.swift; sourceTree = "<group>"; };
 		DAC1F68DD3A85E58CF0578A1 /* LearnDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnDetailView.swift; sourceTree = "<group>"; };
+		EDA025D24CD914280CB92C90 /* LessonProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonProgressStore.swift; sourceTree = "<group>"; };
 		F0905473D30721FD6F497D4C /* AINewsWeeklyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AINewsWeeklyApp.swift; sourceTree = "<group>"; };
 		F15A37941DAF19654774D2FA /* digest-v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "digest-v1.json"; sourceTree = "<group>"; };
 		F2AF8D53B49E294B1042FBD3 /* AINewsWeekly.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AINewsWeekly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEDEFA971ABF02719F930F36 /* LessonProgressStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonProgressStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 				BCEF6FA50658A1B3BDC5D872 /* BookmarksStoreTests.swift */,
 				99EB61A7A0EB6CB007610001 /* CurriculumModelsTests.swift */,
 				B3638E4795DE36967D56A41C /* DigestDateFormatterTests.swift */,
+				FEDEFA971ABF02719F930F36 /* LessonProgressStoreTests.swift */,
 				2577DAD0FEF62E6BED57BAB4 /* ModelsTests.swift */,
 				8DD241738DF667052A367992 /* Fixtures */,
 			);
@@ -205,6 +210,7 @@
 				C9389BA6583EAC4A084DA5DC /* CurriculumService.swift */,
 				0DF8F86E8D720625871E3D63 /* DigestDateFormatter.swift */,
 				071E3563D8AC8AD2364EE491 /* DigestService.swift */,
+				EDA025D24CD914280CB92C90 /* LessonProgressStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				6B074E55416FAFDFEBE18F0A /* LearnDetailView.swift in Sources */,
 				A9472C966C542D5B89B8ADEC /* LearnHomeView.swift in Sources */,
 				65610D4788027248687367D6 /* LessonDetailView.swift in Sources */,
+				05729CB72F2E212F171A4FB0 /* LessonProgressStore.swift in Sources */,
 				9671C2E2913D1B5E99C4D7AF /* MarkdownTheme.swift in Sources */,
 				8E3A058D435B7F1E4F2CEFA0 /* Models.swift in Sources */,
 				424182C0E6225F15FF54F51E /* SettingsView.swift in Sources */,
@@ -376,6 +383,7 @@
 				0962E83449DD75D0F623D6FD /* BookmarksStoreTests.swift in Sources */,
 				DA01FA61AE1E007428C747EB /* CurriculumModelsTests.swift in Sources */,
 				1CE913533D15C67D4B82A088 /* DigestDateFormatterTests.swift in Sources */,
+				FEA4B0E8D6D31DF870881536 /* LessonProgressStoreTests.swift in Sources */,
 				81ACB0564AAADD5E8CD2FC14 /* ModelsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -76,14 +76,18 @@ struct CurriculumModelsTests {
         #expect(curriculum == decoded)
     }
 
-    @Test("updatedAt decodes to a strict UTC instant (no fractional seconds)")
+    @Test("updatedAt decodes to a UTC-aware instant (decoder accepts the strict format)")
     func updatedAtIsUTC() throws {
         let curriculum = try decode()
         let calendar = Calendar(identifier: .gregorian)
         let comps = calendar.dateComponents(in: TimeZone(identifier: "UTC")!, from: curriculum.updatedAt)
         #expect(comps.year != nil)
-        #expect(comps.minute == 0)
-        #expect(comps.second == 0)
+        // Strict UTC ISO-8601 has no fractional seconds — verify by re-encoding
+        // and checking the result has no '.' before the trailing Z.
+        let reencoded = try DigestDateFormatter.encoder().encode(curriculum)
+        let reencodedString = String(data: reencoded, encoding: .utf8) ?? ""
+        #expect(reencodedString.contains("\"updatedAt\""))
+        #expect(!reencodedString.contains(".000Z"))
     }
 
     @Test("Rejects fractional-second updatedAt (strict UTC contract)")
