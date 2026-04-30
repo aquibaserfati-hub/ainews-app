@@ -15,6 +15,26 @@ struct LessonDetailView: View {
     let lesson: Lesson
 
     @State private var showCelebration = false
+    @State private var showTutorSheet = false
+
+    // The step the tutor opens against. Defaults to the first not-yet-done
+    // step, falling back to step 1 of the lesson.
+    private var tutorAnchorStep: (number: Int, step: LessonStep) {
+        let progress = progressStore.progress(for: lesson.id)
+        let doneIds = Set(progress?.completedStepIds ?? [])
+        for (idx, step) in lesson.steps.enumerated() {
+            if !doneIds.contains(step.id) {
+                return (idx + 1, step)
+            }
+        }
+        let last = lesson.steps.indices.last ?? 0
+        return (last + 1, lesson.steps[last])
+    }
+
+    private var canShowTutorButton: Bool {
+        // Hide the tutor entry point once the lesson is fully complete.
+        !progressStore.isLessonComplete(lesson.id) && !lesson.steps.isEmpty
+    }
 
     var body: some View {
         ScrollView {
@@ -33,6 +53,7 @@ struct LessonDetailView: View {
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 24)
+            .padding(.bottom, 70) // leave room for the floating button
         }
         .background(Color.inkCream.ignoresSafeArea())
         .navigationBarTitleDisplayMode(.inline)
@@ -44,7 +65,43 @@ struct LessonDetailView: View {
                     .zIndex(1)
             }
         }
+        .overlay(alignment: .bottomTrailing) {
+            if canShowTutorButton {
+                askTheTutorButton
+                    .padding(.trailing, 16)
+                    .padding(.bottom, 16)
+            }
+        }
         .animation(.spring(response: 0.4, dampingFraction: 0.85), value: showCelebration)
+        .sheet(isPresented: $showTutorSheet) {
+            TutorChatView(
+                lesson: lesson,
+                currentStep: tutorAnchorStep.step,
+                stepNumber: tutorAnchorStep.number
+            )
+            .environment(progressStore)
+        }
+    }
+
+    // MARK: - Floating tutor button
+
+    private var askTheTutorButton: some View {
+        Button {
+            showTutorSheet = true
+        } label: {
+            HStack(spacing: 8) {
+                Image(systemName: "bubble.left.and.bubble.right.fill")
+                Text("Ask the tutor")
+                    .font(.system(.subheadline, design: .serif).weight(.semibold))
+            }
+            .foregroundStyle(Color.inkCream)
+            .padding(.horizontal, 18)
+            .padding(.vertical, 12)
+            .background(Color.inkAmber)
+            .clipShape(Capsule())
+            .shadow(color: Color.inkAmber.opacity(0.2), radius: 8, y: 2)
+        }
+        .accessibilityLabel("Ask the tutor")
     }
 
     // MARK: - Sections

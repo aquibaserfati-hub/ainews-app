@@ -56,22 +56,15 @@ extension Theme {
             BackgroundColor(.inkCodeBg)
         }
         .codeBlock { configuration in
-            configuration.label
-                .relativeLineSpacing(.em(0.25))
-                .markdownTextStyle {
-                    FontFamilyVariant(.monospaced)
-                    FontSize(.em(0.92))
-                    ForegroundColor(.inkText)
-                }
-                .padding(14)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color.inkCodeBg)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .stroke(Color.inkAmberSoft, lineWidth: 1)
-                )
-                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                .markdownMargin(top: 8, bottom: 16)
+            // CodeBlockView wraps the raw fenced code with a tap-to-copy
+            // button (eng review fix #3). MarkdownUI gives us the code
+            // string + optional language via `configuration.content` /
+            // `configuration.language`.
+            CodeBlockView(
+                code: configuration.content,
+                language: configuration.language
+            )
+            .markdownMargin(top: 8, bottom: 16)
         }
         .link { ForegroundColor(.inkAmber) }
 }

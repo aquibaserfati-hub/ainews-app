@@ -133,6 +133,52 @@ final class LessonProgressStore {
         persist()
     }
 
+    // Replaces the body of the most recent assistant message — used by
+    // TutorChatView to grow a streaming assistant response in-place
+    // without appending a new TutorMessage per delta.
+    func replaceLastAssistantMessage(lessonId: String, body: String) {
+        guard let current = progress[lessonId] else { return }
+        guard let lastIndex = current.tutorTranscript.lastIndex(where: { $0.role == .assistant }) else { return }
+        var transcript = current.tutorTranscript
+        let old = transcript[lastIndex]
+        transcript[lastIndex] = TutorMessage(
+            id: old.id,
+            role: old.role,
+            body: body,
+            timestamp: old.timestamp
+        )
+        let updated = LessonProgress(
+            lessonId: current.lessonId,
+            startedAt: current.startedAt,
+            completedAt: current.completedAt,
+            completedStepIds: current.completedStepIds,
+            tutorTranscript: transcript
+        )
+        progress[lessonId] = updated
+        persist()
+    }
+
+    // Drops the trailing assistant placeholder when a streamed response
+    // errors out before the first delta. Keeps transcript clean of empty
+    // assistant bubbles.
+    func dropLastAssistantPlaceholder(lessonId: String) {
+        guard let current = progress[lessonId] else { return }
+        guard let last = current.tutorTranscript.last,
+              last.role == .assistant,
+              last.body.isEmpty
+        else { return }
+        let trimmed = Array(current.tutorTranscript.dropLast())
+        let updated = LessonProgress(
+            lessonId: current.lessonId,
+            startedAt: current.startedAt,
+            completedAt: current.completedAt,
+            completedStepIds: current.completedStepIds,
+            tutorTranscript: trimmed
+        )
+        progress[lessonId] = updated
+        persist()
+    }
+
     // MARK: - Persistence
 
     private func load() {
