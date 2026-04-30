@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- AINewsWeekly v2 Privacy Manifest
+         Required by App Store Review since iOS 17.0 (Spring 2024 mandate).
+         Declares: (a) which Apple Required Reason APIs we call, and (b)
+         whether the app collects data sent off-device.
+
+         Checked against:
+         https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api
+    -->
+
+    <!-- NSPrivacyTrackingDomains: domains the app contacts for tracking.
+         AINews Weekly contacts NO tracking domains. -->
+    <key>NSPrivacyTrackingDomains</key>
+    <array/>
+
+    <!-- NSPrivacyTracking: whether the app tracks users as defined by ATT.
+         FALSE — we collect no data for tracking or advertising. -->
+    <key>NSPrivacyTracking</key>
+    <false/>
+
+    <!-- NSPrivacyAccessedAPITypes: Required Reason APIs used.
+         UserDefaults is a Required Reason API.  Reason codes:
+           CA92.1 — "Access info from the same app, per documentation"
+                    (bookmarks, lesson progress, cached digest/curriculum) -->
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <!-- CA92.1: storing app state (bookmarks, lesson progress,
+                     cached JSON) that the user directly controls -->
+                <string>CA92.1</string>
+            </array>
+        </dict>
+    </array>
+
+    <!-- NSPrivacyCollectedDataTypes: data collected and sent off-device.
+         v2 adds tutor usage (user content) compared to v1's "nothing".
+         All tutor messages are relayed through the ainews-tutor Cloudflare
+         Worker to Anthropic. They are NOT stored on our servers; the Worker
+         processes them statelessly. The iOS app stores transcripts in
+         UserDefaults on-device only. -->
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array>
+        <dict>
+            <!-- User-authored tutor messages -->
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeOtherUserContent</string>
+
+            <!-- FALSE: tutor messages are not linked to the user's identity.
+                 The Worker receives only an opaque install-scoped UUID. -->
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <false/>
+
+            <!-- FALSE: tutor messages are never used for tracking or ads. -->
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <false/>
+
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <!-- NSPrivacyCollectedDataTypePurposeAppFunctionality:
+                     The tutor message is sent to Anthropic solely to generate
+                     a contextual reply for the current lesson step. -->
+                <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+            </array>
+        </dict>
+    </array>
+</dict>
+</plist>

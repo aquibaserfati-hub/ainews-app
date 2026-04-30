@@ -4,6 +4,15 @@ import XCTest
 // XCTAttachment screenshots at each. Run on iPhone 16 Pro Max simulator
 // (6.9" — the size Apple wants for new App Store submissions).
 //
+// Shot order for v2 (per design doc Weekend 7 — screenshots must show the
+// curriculum surface as primary, digest as secondary):
+//   01 — Learn tab home (hero + 3 track cards)
+//   02 — Beginner track detail (lesson list with progress dots)
+//   03 — Lesson detail top (step 1, code block with Copy button visible)
+//   04 — Lesson with mid-progress (several steps done, progress bar filled)
+//   05 — Digest tab (AI Report hero card — v1's primary screen, now secondary)
+//   06 — Settings (bookmarks, force refresh, About)
+//
 // To extract the screenshots after running:
 //   xcrun xcresulttool get --legacy --path <result.xcresult> \
 //     --format json > attachments.json
@@ -17,73 +26,81 @@ final class AppStoreScreenshotTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        // Wait for the network fetch + decode + render to finish.
-        // The Weekly Report hero card has the title "AI Report" in serif.
+        // Wait for curriculum + digest fetch to settle.
+        // Default launch lands on Digest tab — wait for the AI Report hero.
         let aiReport = app.staticTexts["AI Report"]
         XCTAssertTrue(aiReport.waitForExistence(timeout: 30),
-                      "AI Report hero never appeared — backend fetch may have failed")
-
-        // Brief settle so the loading skeleton finishes its transition.
+                      "AI Report hero never appeared — digest fetch may have failed")
         Thread.sleep(forTimeInterval: 1.5)
-        attach(name: "01-home-hero", from: app)
 
-        // Scroll down so the Learn section is visible.
-        let mainScroll = app.scrollViews.firstMatch
-        if mainScroll.exists {
-            mainScroll.swipeUp(velocity: .slow)
-        } else {
-            app.swipeUp(velocity: .slow)
-        }
+        // 1. Switch to the Learn tab first — it's the hero surface for v2.
+        let learnTab = app.tabBars.buttons["Learn"]
+        XCTAssertTrue(learnTab.waitForExistence(timeout: 5))
+        learnTab.tap()
+
+        let learnHero = app.staticTexts["Learn AI Tools"]
+        XCTAssertTrue(learnHero.waitForExistence(timeout: 15),
+                      "Learn AI Tools hero never appeared — curriculum fetch may have failed")
         Thread.sleep(forTimeInterval: 1.0)
-        attach(name: "02-learn-section", from: app)
+        attach(name: "01-learn-home", from: app)
 
-        // Tap into the first Learn item. NavigationLink wraps a Button-style cell;
-        // bound by position rather than label since titles vary across digests.
-        let firstLearnCard = app.buttons.matching(NSPredicate(format: "label CONTAINS 'min setup' OR label CONTAINS 'Tooling' OR label CONTAINS 'Anthropic' OR label CONTAINS 'OpenAI'")).firstMatch
-        if firstLearnCard.exists {
-            firstLearnCard.tap()
-        } else {
-            // Fallback: tap a learn-card-shaped element via coordinate. The
-            // first Learn card sits roughly in the middle of the lower half
-            // after the swipe.
-            let cells = app.buttons.allElementsBoundByIndex
-            // Heuristic: the first button after the gear icon (at index 0) is
-            // typically the first Learn card.
-            if cells.count > 1 {
-                cells[1].tap()
+        // 2. Tap into Beginner track.
+        let beginnerCard = app.buttons.matching(
+            NSPredicate(format: "label CONTAINS[c] 'Beginner'")
+        ).firstMatch
+        XCTAssertTrue(beginnerCard.waitForExistence(timeout: 5))
+        beginnerCard.tap()
+        Thread.sleep(forTimeInterval: 1.0)
+        attach(name: "02-beginner-track", from: app)
+
+        // 3. Tap into "Setting up Claude Code".
+        let lessonRow = app.buttons.matching(
+            NSPredicate(format: "label CONTAINS 'Setting up Claude Code'")
+        ).firstMatch
+        if lessonRow.waitForExistence(timeout: 5) {
+            lessonRow.tap()
+            Thread.sleep(forTimeInterval: 1.5)
+            attach(name: "03-lesson-detail-top", from: app)
+
+            // 4. Mark the first 3 steps done to show filled progress bar
+            // and the in-progress state for the screenshot.
+            for stepN in 1...3 {
+                let markButton = app.buttons["Mark step \(stepN) done"]
+                if markButton.waitForExistence(timeout: 3) {
+                    markButton.tap()
+                    Thread.sleep(forTimeInterval: 0.3)
+                }
+            }
+            attach(name: "04-lesson-mid-progress", from: app)
+
+            // Back to Beginner track, then back to Learn home.
+            let backToBeginner = app.navigationBars.buttons.element(boundBy: 0)
+            if backToBeginner.exists {
+                backToBeginner.tap()
+                Thread.sleep(forTimeInterval: 0.6)
             }
         }
-        Thread.sleep(forTimeInterval: 1.5)
-        attach(name: "03-detail-top", from: app)
 
-        // Scroll to the setup-guide section. The Detail view scrolls the
-        // sections; markdown is below pros/cons.
-        app.swipeUp(velocity: .slow)
-        Thread.sleep(forTimeInterval: 0.6)
-        app.swipeUp(velocity: .slow)
-        Thread.sleep(forTimeInterval: 1.0)
-        attach(name: "04-detail-setup", from: app)
-
-        // Bookmark this item for the Settings shot.
-        let bookmark = app.buttons["Add bookmark"]
-        if bookmark.exists {
-            bookmark.tap()
+        let backToLearn = app.navigationBars.buttons.element(boundBy: 0)
+        if backToLearn.exists {
+            backToLearn.tap()
             Thread.sleep(forTimeInterval: 0.6)
         }
 
-        // Back to home.
-        let backButton = app.navigationBars.buttons.element(boundBy: 0)
-        if backButton.exists {
-            backButton.tap()
+        // 5. Switch to Digest tab for the AI Report screenshot.
+        let digestTab = app.tabBars.buttons["Digest"]
+        if digestTab.exists {
+            digestTab.tap()
             Thread.sleep(forTimeInterval: 1.0)
+            attach(name: "05-digest-tab", from: app)
         }
 
-        // Open Settings via the gear icon.
+        // 6. Open Settings via the gear icon.
         let settings = app.buttons["Settings"]
         if settings.exists {
             settings.tap()
             Thread.sleep(forTimeInterval: 1.0)
-            attach(name: "05-settings", from: app)
+            attach(name: "06-settings", from: app)
         }
     }
 
