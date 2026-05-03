@@ -66,7 +66,7 @@ private struct WorkerErrorEnvelope: Decodable {
 final class TutorService: @unchecked Sendable {
     // PLACEHOLDER — replace with the URL `wrangler deploy` prints after
     // running it the first time.
-    static let workerURL = URL(string: "https://ainews-tutor.PLACEHOLDER.workers.dev/v1/chat")!
+    static let workerURL = URL(string: "https://ainews-tutor.aquiba.workers.dev/v1/chat")!
 
     // Time the iOS client waits between connection-open and the first SSE
     // event before giving up. Eng review fix #5.
