@@ -21,21 +21,22 @@ struct AINewsWeeklyApp: App {
     }
 }
 
-// RootTabView — v2 tab bar. Two tabs: Digest (the v1 HomeView, unchanged)
-// and Learn (the new curriculum surface). Selection defaults to Digest on
-// cold launch — that's the entry-point experience users land on.
 private struct RootTabView: View {
+    @State private var selectedTab = 1
+
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             HomeView()
                 .tabItem {
                     Label("Digest", systemImage: "newspaper")
                 }
+                .tag(0)
 
             LearnHomeView()
                 .tabItem {
                     Label("Learn", systemImage: "book.closed")
                 }
+                .tag(1)
         }
         .tint(.inkAmber)
     }
