@@ -55,18 +55,45 @@ struct LearnHomeView: View {
 
 private struct LearnScroll: View {
     let curriculum: Curriculum
+    @State private var searchText = ""
+
+    private var allLessons: [(lesson: Lesson, track: CurriculumTrack)] {
+        curriculum.tracks.sorted { $0.order < $1.order }.flatMap { track in
+            track.lessons.map { (lesson: $0, track: track) }
+        }
+    }
+
+    private var filteredLessons: [(lesson: Lesson, track: CurriculumTrack)] {
+        guard !searchText.isEmpty else { return [] }
+        let q = searchText.lowercased()
+        return allLessons.filter {
+            $0.lesson.title.lowercased().contains(q) ||
+            $0.lesson.oneLineDescription.lowercased().contains(q) ||
+            $0.track.title.lowercased().contains(q)
+        }
+    }
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                LearnHero()
-                tracksSection
+            if searchText.isEmpty {
+                VStack(alignment: .leading, spacing: 24) {
+                    LearnHero()
+                    tracksSection
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 24)
+            } else {
+                searchResults
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 16)
             }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 24)
         }
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search lessons")
         .navigationDestination(for: CurriculumTrack.self) { track in
             TrackDetailView(track: track)
+        }
+        .navigationDestination(for: Lesson.self) { lesson in
+            LessonDetailView(lesson: lesson)
         }
     }
 
@@ -79,6 +106,61 @@ private struct LearnScroll: View {
                 .buttonStyle(.plain)
             }
         }
+    }
+
+    private var searchResults: some View {
+        VStack(spacing: 12) {
+            if filteredLessons.isEmpty {
+                Text("No lessons match \"\(searchText)\"")
+                    .font(.callout)
+                    .foregroundStyle(Color.inkTextSecondary)
+                    .padding(.top, 40)
+                    .frame(maxWidth: .infinity)
+            } else {
+                ForEach(filteredLessons, id: \.lesson.id) { pair in
+                    NavigationLink(value: pair.lesson) {
+                        SearchResultRow(lesson: pair.lesson, trackTitle: pair.track.title)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+        }
+    }
+}
+
+private struct SearchResultRow: View {
+    let lesson: Lesson
+    let trackTitle: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(lesson.title)
+                .font(.system(.subheadline, design: .serif).weight(.semibold))
+                .foregroundStyle(Color.inkText)
+            Text(lesson.oneLineDescription)
+                .font(.caption)
+                .foregroundStyle(Color.inkTextSecondary)
+                .lineLimit(2)
+            HStack(spacing: 4) {
+                Text(trackTitle)
+                    .font(.caption2)
+                    .foregroundStyle(Color.inkAmber)
+                Text("·")
+                    .font(.caption2)
+                    .foregroundStyle(Color.inkTextTertiary)
+                Text("\(lesson.estimatedMinutes) min")
+                    .font(.caption2)
+                    .foregroundStyle(Color.inkTextTertiary)
+            }
+        }
+        .padding(14)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.inkCard)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .stroke(Color.inkAmberSoft, lineWidth: 1)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
     }
 }
 

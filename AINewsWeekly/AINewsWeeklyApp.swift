@@ -6,6 +6,7 @@ struct AINewsWeeklyApp: App {
     @State private var curriculumService = CurriculumService()
     @State private var bookmarksStore = BookmarksStore()
     @State private var lessonProgressStore = LessonProgressStore()
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
 
     var body: some Scene {
         WindowGroup {
@@ -14,9 +15,15 @@ struct AINewsWeeklyApp: App {
                 .environment(curriculumService)
                 .environment(bookmarksStore)
                 .environment(lessonProgressStore)
-                .preferredColorScheme(.light)  // light-mode only; dark in v1.5
+                .preferredColorScheme(.light)
                 .tint(.inkAmber)
                 .background(Color.inkCream)
+                .fullScreenCover(isPresented: Binding(
+                    get: { !hasSeenOnboarding },
+                    set: { hasSeenOnboarding = !$0 }
+                )) {
+                    OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
+                }
         }
     }
 }
