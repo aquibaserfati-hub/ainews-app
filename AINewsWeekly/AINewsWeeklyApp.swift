@@ -43,6 +43,12 @@ private struct RootTabView: View {
                     Label("Learn", systemImage: "book.closed")
                 }
                 .tag(1)
+
+            SkillsHomeView()
+                .tabItem {
+                    Label("Skills", systemImage: "terminal")
+                }
+                .tag(2)
         }
         .tint(.inkAmber)
     }
