@@ -8,7 +8,7 @@ struct OnboardingView: View {
         OnboardingPage(
             icon: "book.closed.fill",
             title: "Learn AI Tools\nStep by Step",
-            body: "6 hands-on lessons across Beginner, Intermediate, and Advanced tracks — from Claude Code to Cloudflare Workers."
+            body: "9 hands-on lessons across Beginner, Intermediate, and Advanced tracks — from Claude Code to Cloudflare Workers."
         ),
         OnboardingPage(
             icon: "checkmark.circle.fill",

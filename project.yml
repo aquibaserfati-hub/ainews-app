@@ -35,8 +35,8 @@ targets:
       path: AINewsWeekly/Info.plist
       properties:
         CFBundleDisplayName: AINews Weekly
-        CFBundleShortVersionString: "0.1.0"
-        CFBundleVersion: "1"
+        CFBundleShortVersionString: "2.0"
+        CFBundleVersion: "5"
         UILaunchScreen:
           UIColorName: AccentColor
         UISupportedInterfaceOrientations:

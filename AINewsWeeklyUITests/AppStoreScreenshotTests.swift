@@ -24,24 +24,14 @@ final class AppStoreScreenshotTests: XCTestCase {
 
     func test_captureAppStoreScreenshots() throws {
         let app = XCUIApplication()
+        app.launchArguments = ["--reset-for-screenshots"]
         app.launch()
 
-        // Wait for curriculum + digest fetch to settle.
-        // Default launch lands on Digest tab — wait for the AI Report hero.
-        let aiReport = app.staticTexts["AI Report"]
-        XCTAssertTrue(aiReport.waitForExistence(timeout: 30),
-                      "AI Report hero never appeared — digest fetch may have failed")
-        Thread.sleep(forTimeInterval: 1.5)
-
-        // 1. Switch to the Learn tab first — it's the hero surface for v2.
-        let learnTab = app.tabBars.buttons["Learn"]
-        XCTAssertTrue(learnTab.waitForExistence(timeout: 5))
-        learnTab.tap()
-
+        // App defaults to Learn tab. Wait for curriculum to load.
         let learnHero = app.staticTexts["Learn AI Tools"]
-        XCTAssertTrue(learnHero.waitForExistence(timeout: 15),
+        XCTAssertTrue(learnHero.waitForExistence(timeout: 30),
                       "Learn AI Tools hero never appeared — curriculum fetch may have failed")
-        Thread.sleep(forTimeInterval: 1.0)
+        Thread.sleep(forTimeInterval: 1.5)
         attach(name: "01-learn-home", from: app)
 
         // 2. Tap into Beginner track.
@@ -91,16 +81,26 @@ final class AppStoreScreenshotTests: XCTestCase {
         let digestTab = app.tabBars.buttons["Digest"]
         if digestTab.exists {
             digestTab.tap()
-            Thread.sleep(forTimeInterval: 1.0)
+            Thread.sleep(forTimeInterval: 2.0)
             attach(name: "05-digest-tab", from: app)
         }
 
-        // 6. Open Settings via the gear icon.
+        // 6. Switch to Skills tab.
+        let skillsTab = app.tabBars.buttons["Skills"]
+        if skillsTab.exists {
+            skillsTab.tap()
+            Thread.sleep(forTimeInterval: 1.0)
+            attach(name: "06-skills-tab", from: app)
+        }
+
+        // 7. Open Settings via the gear icon.
+        let learnTabFinal = app.tabBars.buttons["Learn"]
+        if learnTabFinal.exists { learnTabFinal.tap() }
         let settings = app.buttons["Settings"]
-        if settings.exists {
+        if settings.waitForExistence(timeout: 3) {
             settings.tap()
             Thread.sleep(forTimeInterval: 1.0)
-            attach(name: "06-settings", from: app)
+            attach(name: "07-settings", from: app)
         }
     }
 
