@@ -1,0 +1,23 @@
+{
+  "/Users/aquiba/AINews/ainews-app/AINewsWeekly/Models/CurriculumModels.swift" : {
+    "const-values" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/CurriculumModels.swiftconstvalues",
+    "dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/CurriculumModels.d",
+    "diagnostics" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/CurriculumModels.dia",
+    "object" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/CurriculumModels.o",
+    "swift-dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/CurriculumModels.swiftdeps"
+  },
+  "/Users/aquiba/AINews/ainews-app/AINewsWeekly/Services/CurriculumService.swift" : {
+    "const-values" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/CurriculumService.swiftconstvalues",
+    "dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/CurriculumService.d",
+    "diagnostics" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/CurriculumService.dia",
+    "object" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/CurriculumService.o",
+    "swift-dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/CurriculumService.swiftdeps"
+  },
+  "/Users/aquiba/AINews/ainews-app/AINewsWeekly/Services/DigestDateFormatter.swift" : {
+    "const-values" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/DigestDateFormatter.swiftconstvalues",
+    "dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/DigestDateFormatter.d",
+    "diagnostics" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/DigestDateFormatter.dia",
+    "object" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/DigestDateFormatter.o",
+    "swift-dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/DigestDateFormatter.swiftdeps"
+  }
+}

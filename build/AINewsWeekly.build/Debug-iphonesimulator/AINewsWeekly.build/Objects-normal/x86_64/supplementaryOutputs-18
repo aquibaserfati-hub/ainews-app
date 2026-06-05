@@ -1,0 +1,23 @@
+{
+  "/Users/aquiba/AINews/ainews-app/AINewsWeekly/Theme/Colors.swift" : {
+    "const-values" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/Colors.swiftconstvalues",
+    "dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/Colors.d",
+    "diagnostics" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/Colors.dia",
+    "object" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/Colors.o",
+    "swift-dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/Colors.swiftdeps"
+  },
+  "/Users/aquiba/AINews/ainews-app/AINewsWeekly/Views/CategoryTag.swift" : {
+    "const-values" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/CategoryTag.swiftconstvalues",
+    "dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/CategoryTag.d",
+    "diagnostics" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/CategoryTag.dia",
+    "object" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/CategoryTag.o",
+    "swift-dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/CategoryTag.swiftdeps"
+  },
+  "/Users/aquiba/AINews/ainews-app/AINewsWeekly/Views/CodeBlockView.swift" : {
+    "const-values" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/CodeBlockView.swiftconstvalues",
+    "dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/CodeBlockView.d",
+    "diagnostics" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/CodeBlockView.dia",
+    "object" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/CodeBlockView.o",
+    "swift-dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/x86_64/CodeBlockView.swiftdeps"
+  }
+}

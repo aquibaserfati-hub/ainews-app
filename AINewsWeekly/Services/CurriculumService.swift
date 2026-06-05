@@ -23,6 +23,7 @@ final class CurriculumService {
     }
 
     private(set) var state: LoadState = .idle
+    private(set) var isFromCache = false
 
     private let session: URLSession
     private let fileManager: FileManager
@@ -62,6 +63,7 @@ final class CurriculumService {
             try assertSuccessHTTP(response)
             let curriculum = try decode(data: data)
             try writeCache(data: data)
+            isFromCache = false
             state = .loaded(curriculum)
             return
         } catch let mismatch as CurriculumSchemaMismatchError {
@@ -69,6 +71,7 @@ final class CurriculumService {
             return
         } catch {
             if let cached = readCachedCurriculum() {
+                isFromCache = true
                 state = .loaded(cached)
                 return
             }

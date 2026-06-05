@@ -20,6 +20,11 @@ struct OnboardingView: View {
             title: "Ask the Tutor",
             body: "Stuck on a step? The built-in AI tutor knows which lesson and step you're on. Context-aware help without copy-pasting."
         ),
+        OnboardingPage(
+            icon: "bell.badge.fill",
+            title: "Stay in the Loop",
+            body: "Get notified when new lessons drop. One notification per week, no spam."
+        ),
     ]
 
     var body: some View {
@@ -80,6 +85,7 @@ struct OnboardingView: View {
             if page < pages.count - 1 {
                 withAnimation { page += 1 }
             } else {
+                Task { await NotificationService.requestPermission() }
                 hasSeenOnboarding = true
             }
         } label: {

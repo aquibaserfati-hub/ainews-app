@@ -1,0 +1,23 @@
+{
+  "/Users/aquiba/AINews/ainews-app/AINewsWeekly/AINewsWeeklyApp.swift" : {
+    "const-values" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/AINewsWeeklyApp.swiftconstvalues",
+    "dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/AINewsWeeklyApp.d",
+    "diagnostics" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/AINewsWeeklyApp.dia",
+    "object" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/AINewsWeeklyApp.o",
+    "swift-dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/AINewsWeeklyApp.swiftdeps"
+  },
+  "/Users/aquiba/AINews/ainews-app/AINewsWeekly/Models/Category.swift" : {
+    "const-values" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/Category.swiftconstvalues",
+    "dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/Category.d",
+    "diagnostics" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/Category.dia",
+    "object" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/Category.o",
+    "swift-dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/Category.swiftdeps"
+  },
+  "/Users/aquiba/AINews/ainews-app/AINewsWeekly/Services/BookmarksStore.swift" : {
+    "const-values" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/BookmarksStore.swiftconstvalues",
+    "dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/BookmarksStore.d",
+    "diagnostics" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/BookmarksStore.dia",
+    "object" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/BookmarksStore.o",
+    "swift-dependencies" : "/Users/aquiba/AINews/ainews-app/build/AINewsWeekly.build/Debug-iphonesimulator/AINewsWeekly.build/Objects-normal/arm64/BookmarksStore.swiftdeps"
+  }
+}

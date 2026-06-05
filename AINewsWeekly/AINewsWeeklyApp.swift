@@ -15,7 +15,6 @@ struct AINewsWeeklyApp: App {
                 .environment(curriculumService)
                 .environment(bookmarksStore)
                 .environment(lessonProgressStore)
-                .preferredColorScheme(.light)
                 .tint(.inkAmber)
                 .background(Color.inkCream)
                 .fullScreenCover(isPresented: Binding(

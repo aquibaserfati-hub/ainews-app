@@ -57,6 +57,18 @@ struct LessonDetailView: View {
         }
         .background(Color.inkCream.ignoresSafeArea())
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                ShareLink(
+                    item: "\(lesson.title)\n\(lesson.oneLineDescription)\n\nLearn AI tools with AINews Weekly.",
+                    subject: Text(lesson.title),
+                    message: Text(lesson.oneLineDescription)
+                ) {
+                    Image(systemName: "square.and.arrow.up")
+                        .foregroundStyle(Color.inkAmber)
+                }
+            }
+        }
         .overlay(alignment: .top) {
             if showCelebration {
                 CelebrationToast(lesson: lesson)

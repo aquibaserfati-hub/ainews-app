@@ -38,6 +38,7 @@
 		D42FCCD75FAF46663AFE2298 /* BookmarksStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2F7C5FD1F875CCEBE5D5B7 /* BookmarksStore.swift */; };
 		DA01FA61AE1E007428C747EB /* CurriculumModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EB61A7A0EB6CB007610001 /* CurriculumModelsTests.swift */; };
 		E09B37A2C77827E2D8FE34D3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC4B6F8CE96BE791812410 /* HomeView.swift */; };
+		AA11BB22CC33DD44EE55FF66 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11BB22CC33DD44EE55FF67 /* OnboardingView.swift */; };
 		E139CF9D3F07B9E490DB4DB6 /* digest-v1.json in Resources */ = {isa = PBXBuildFile; fileRef = F15A37941DAF19654774D2FA /* digest-v1.json */; };
 		E39978AD1CDC622B2E01376B /* CodeBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B98E3F92F67BAF2E264A19 /* CodeBlockView.swift */; };
 		E690290FCA5971B393011A13 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFEACDE72D2EDF0C54109C6 /* TrackDetailView.swift */; };
@@ -72,7 +73,7 @@
 		12A306724D377F1EC5248BDB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		19B98E3F92F67BAF2E264A19 /* CodeBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBlockView.swift; sourceTree = "<group>"; };
 		1A88574AC997F80396523639 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		23A40B2D76EC667FCB7A082D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		23A40B2D76EC667FCB7A082D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		2577DAD0FEF62E6BED57BAB4 /* ModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsTests.swift; sourceTree = "<group>"; };
 		27AD51DA65129D3CF65A4FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2846AECC4D1C72AB2F54E8D2 /* CategoryTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTag.swift; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 		815FEFB83E996BDCC37B3E25 /* TutorChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorChatView.swift; sourceTree = "<group>"; };
 		85DBAABB44D530423041E896 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		8EFC4B6F8CE96BE791812410 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AA11BB22CC33DD44EE55FF67 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9870FA7B301F57664E072195 /* curriculum-v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "curriculum-v1.json"; sourceTree = "<group>"; };
 		99EB61A7A0EB6CB007610001 /* CurriculumModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumModelsTests.swift; sourceTree = "<group>"; };
 		9D64F4C266A888D9AE292E01 /* AINewsWeeklyTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AINewsWeeklyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +104,7 @@
 		EDA025D24CD914280CB92C90 /* LessonProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonProgressStore.swift; sourceTree = "<group>"; };
 		F0905473D30721FD6F497D4C /* AINewsWeeklyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AINewsWeeklyApp.swift; sourceTree = "<group>"; };
 		F15A37941DAF19654774D2FA /* digest-v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "digest-v1.json"; sourceTree = "<group>"; };
-		F2AF8D53B49E294B1042FBD3 /* AINewsWeekly.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AINewsWeekly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2AF8D53B49E294B1042FBD3 /* AINewsWeekly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AINewsWeekly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEDEFA971ABF02719F930F36 /* LessonProgressStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonProgressStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +157,7 @@
 				19B98E3F92F67BAF2E264A19 /* CodeBlockView.swift */,
 				8EFC4B6F8CE96BE791812410 /* HomeView.swift */,
 				DAC1F68DD3A85E58CF0578A1 /* LearnDetailView.swift */,
+				AA11BB22CC33DD44EE55FF67 /* OnboardingView.swift */,
 				B036A28EE2C0583EA2EB906C /* LearnHomeView.swift */,
 				6EAF07F20726969E6E5D4F7D /* LessonDetailView.swift */,
 				12A306724D377F1EC5248BDB /* SettingsView.swift */,
@@ -312,9 +315,6 @@
 					91BC4EC9CE0F08EED76D3ADF = {
 						DevelopmentTeam = "";
 					};
-					96B08C445494A5C3D0462811 = {
-						DevelopmentTeam = "";
-					};
 				};
 			};
 			buildConfigurationList = A59975BFD4D917A1D21ECB10 /* Build configuration list for PBXProject "AINewsWeekly" */;
@@ -379,6 +379,7 @@
 				0A93208B3F480AF9A5C3BCE6 /* DigestService.swift in Sources */,
 				E09B37A2C77827E2D8FE34D3 /* HomeView.swift in Sources */,
 				26FBD572777668835469EE58 /* InstallTokenStore.swift in Sources */,
+				AA11BB22CC33DD44EE55FF66 /* OnboardingView.swift in Sources */,
 				6B074E55416FAFDFEBE18F0A /* LearnDetailView.swift in Sources */,
 				A9472C966C542D5B89B8ADEC /* LearnHomeView.swift in Sources */,
 				65610D4788027248687367D6 /* LessonDetailView.swift in Sources */,
@@ -438,6 +439,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = WQ8WBZK88M;
 				INFOPLIST_FILE = AINewsWeekly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -490,6 +492,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = WQ8WBZK88M;
 				INFOPLIST_FILE = AINewsWeekly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
