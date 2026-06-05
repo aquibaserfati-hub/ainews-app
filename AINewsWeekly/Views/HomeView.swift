@@ -126,6 +126,7 @@ private struct HeroCard: View {
         f.dateStyle = .long
         f.timeStyle = .none
         f.locale = Locale.current
+        f.timeZone = TimeZone(identifier: "UTC")
         return f.string(from: date)
     }
 }

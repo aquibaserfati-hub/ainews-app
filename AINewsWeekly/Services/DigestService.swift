@@ -69,7 +69,8 @@ final class DigestService {
             let (data, response) = try await session.data(for: request)
             try assertSuccessHTTP(response)
             let digest = try decode(data: data)
-            try writeCache(data: data)
+            let cacheURL = self.cacheURL
+            Task.detached { try? data.write(to: cacheURL, options: [.atomic]) }
             state = .loaded(digest, isStale: isStale(digest: digest))
             return
         } catch let mismatch as SchemaMismatchError {
