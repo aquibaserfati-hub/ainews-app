@@ -29,7 +29,7 @@ extension Skill {
         name: "GStack",
         tagline: "40+ workflow skills for Claude Code",
         description: "GStack supercharges your Claude Code workflow with battle-tested skills: /ship, /review, /investigate, /qa, /plan-eng-review, and 40 more. One install transforms Claude Code from a coding assistant into a full engineering workflow partner. Built by Garry — YC-style product thinking baked into every command.",
-        installCommand: "cd ~/.claude/skills && git clone https://github.com/garrynewman/gstack.git gstack && cd gstack && ./setup",
+        installCommand: "cd ~/.claude/skills && git clone https://github.com/garrytan/gstack.git gstack && cd gstack && ./setup",
         features: [
             "/ship — smart PR creation with tests + diff review",
             "/review — pre-landing code review gate",
@@ -41,7 +41,7 @@ extension Skill {
             "/design-review — visual polish + spacing audit"
         ],
         category: .workflow,
-        githubURL: URL(string: "https://github.com/garrynewman/gstack"),
+        githubURL: URL(string: "https://github.com/garrytan/gstack"),
         docsURL: URL(string: "https://garryslist.org")
     )
 
@@ -50,7 +50,7 @@ extension Skill {
         name: "Superpowers",
         tagline: "Engineering discipline for Claude Code",
         description: "Superpowers installs workflow discipline into every Claude Code session. TDD-first development, systematic debugging, structured code review, and verification before claiming done. Makes Claude Code operate like a senior engineer — no shortcuts, no blind implementations.",
-        installCommand: "npx skills add superpowers",
+        installCommand: "claude /plugin install superpowers@claude-plugins-official",
         features: [
             "Test-Driven Development — write tests before code",
             "Systematic Debugging — root cause before fixes",
@@ -62,7 +62,7 @@ extension Skill {
             "Executing Plans — checkpoints through implementation"
         ],
         category: .coding,
-        githubURL: URL(string: "https://github.com/superpowers-ai/superpowers"),
+        githubURL: URL(string: "https://github.com/obra/superpowers"),
         docsURL: nil
     )
 
